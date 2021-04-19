@@ -30,14 +30,24 @@ public class EventProducer {
     @Path("/txn-event/{custId}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void postCase(String json,@javax.ws.rs.PathParam("custId") String customerId) {
+    public void postCase(String json,@javax.ws.rs.PathParam("custId") String custId) {
 
         try {
-            String jsonStr = "{\"eventValue\": \""+json+"\", \"eventSource\": \"WEBSITE\"}";
-           CustomerEvents customerEvents = new CustomerEvents();
-            customerEvents.setCustId(customerId);
-            customerEvents.setEvent(json);
-            kafkaController.produce(customerId,jsonStr);
+
+            String jsonStart="{\n" +
+                    " \"custId\":\"CUST6767\",\n" +
+                    " \"transactionAmount\":";
+            String jsonString = ",\n" +
+                    " \"transactionDate\":";
+            String jsonEnd = ",\n" +
+                    " \"merchantName\":\"MERCH0001\",\n" +
+                    " \"transactionCountry\":\"INDIA\"  \n" +
+                    "  \n" +
+                    "}";
+
+            System.out.println("txn"+jsonStart+json+jsonString+new Date().getTime()+jsonEnd);
+
+            kafkaController.produce(custId,jsonStart+json+jsonString+new Date().getTime()+jsonEnd);
 
 
         }catch (Exception e) {

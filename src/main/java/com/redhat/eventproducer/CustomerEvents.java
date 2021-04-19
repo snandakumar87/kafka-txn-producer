@@ -3,7 +3,21 @@ package com.redhat.eventproducer;
 public class CustomerEvents {
 
     String custId;
-    String event;
+    String transactionAmount;
+    String transactionDate;
+    String merchantName;
+    String transactionCountry;
+
+    @Override
+    public String toString() {
+        return "CustomerEvents{" +
+                "custId='" + custId + '\'' +
+                ", transactionAmount='" + transactionAmount + '\'' +
+                ", transactionDate='" + transactionDate + '\'' +
+                ", merchantName='" + merchantName + '\'' +
+                ", transactionCountry='" + transactionCountry + '\'' +
+                '}';
+    }
 
     public String getCustId() {
         return custId;
@@ -13,19 +27,35 @@ public class CustomerEvents {
         this.custId = custId;
     }
 
-    public String getEvent() {
-        return event;
+    public String getTransactionAmount() {
+        return transactionAmount;
     }
 
-    public void setEvent(String event) {
-        this.event = event;
+    public void setTransactionAmount(String transactionAmount) {
+        this.transactionAmount = transactionAmount;
     }
 
-    @Override
-    public String toString() {
-        return "CustomerEvents{" +
-                "custId='" + custId + '\'' +
-                ", event='" + event + '\'' +
-                '}';
+    public String getTransactionDate() {
+        return transactionDate;
+    }
+
+    public void setTransactionDate(String transactionDate) {
+        this.transactionDate = transactionDate;
+    }
+
+    public String getMerchantName() {
+        return merchantName;
+    }
+
+    public void setMerchantName(String merchantName) {
+        this.merchantName = merchantName;
+    }
+
+    public String getTransactionCountry() {
+        return transactionCountry;
+    }
+
+    public void setTransactionCountry(String transactionCountry) {
+        this.transactionCountry = transactionCountry;
     }
 }
