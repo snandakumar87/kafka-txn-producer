@@ -40,7 +40,7 @@ public class EventProducer {
             String jsonString = ",\n" +
                     " \"transactionDate\":";
             String jsonEnd = ",\n" +
-                    " \"merchantName\":\"MERCH0001\",\n" +
+                    " \"merchantName\":\"Airlines Co\",\n" +
                     " \"transactionCountry\":\"INDIA\"  \n" +
                     "  \n" +
                     "}";
